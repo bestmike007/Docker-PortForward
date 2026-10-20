@@ -5,7 +5,7 @@ WORKDIR /tmp/src
 RUN go build -o /tmp/gobuilt
 
 
-FROM alpine:3.6
+FROM alpine:3.24
 
 RUN apk --no-cache update && apk --no-cache add socat tini && rm -rf /var/cache/apk/
 COPY --from=build /tmp/gobuilt /entrypoint
